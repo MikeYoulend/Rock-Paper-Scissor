@@ -5,6 +5,7 @@ const resultDisplay = document.getElementById("result");
 const possibleChoices = document.querySelectorAll("button"); //Prende letteralmente tutti i button
 
 let userChoice;
+let computerChoice;
 
 possibleChoices.forEach(
 	(
@@ -21,5 +22,15 @@ possibleChoices.forEach(
 
 function generateComputerChoice() {
 	const randomNumber = Math.floor(Math.random() * possibleChoices.length) + 1; //mi da un nemero random per la lungezza di possibleChoices quindi 3, +1 perchè in programmazione si parte da 0 a contare
-	console.log(randomNumber);
+
+	//Ogni risultato di randomNumber sarà uguale ad una figura
+	if (randomNumber === 1) {
+		computerChoice = "rock";
+	}
+	if (randomNumber === 2) {
+		computerChoice = "scissors";
+	}
+	if (randomNumber === 3) {
+		computerChoice = "paper";
+	}
 }
