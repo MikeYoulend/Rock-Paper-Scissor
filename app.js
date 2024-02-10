@@ -6,6 +6,7 @@ const possibleChoices = document.querySelectorAll("button"); //Prende letteralme
 
 let userChoice;
 let computerChoice;
+let result;
 
 possibleChoices.forEach(
 	(
@@ -17,6 +18,7 @@ possibleChoices.forEach(
 			userChoice = e.target.id; //restituisce l'id dell'elemento HTML che ha scatenato l'evento
 			userChoiceDisplay.innerHTML = userChoice; //ci mostra a schermo userChoice
 			generateComputerChoice();
+			getResult();
 		})
 );
 
@@ -33,4 +35,32 @@ function generateComputerChoice() {
 	if (randomNumber === 3) {
 		computerChoice = "paper";
 	}
+
+	computerChoiceDisplay.innerHTML = computerChoice; //mostra in ComputerChoiceDisplay il risultato
+}
+
+function getResult() {
+	if (computerChoice === userChoice) {
+		result = "its a draw";
+	}
+	if (computerChoice === "rock" && userChoice === "paper") {
+		result = "you win!!!";
+	}
+	if (computerChoice === "rock" && userChoice === "scissors") {
+		result = "you lose!!!";
+	}
+	if (computerChoice === "paper" && userChoice === "scissors") {
+		result = "you win!!!";
+	}
+	if (computerChoice === "paper" && userChoice === "rock") {
+		result = "you lose!!!";
+	}
+	if (computerChoice === "scissors" && userChoice === "rock") {
+		result = "you win!!!";
+	}
+	if (computerChoice === "scissors" && userChoice === "paper") {
+		result = "you lose!!!";
+	}
+
+	resultDisplay.innerHTML = result;
 }
